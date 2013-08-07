@@ -2,7 +2,7 @@
 
 // index controller
 
-function MainController($scope, $cookieStore) {
+function MainController($scope, $translate, $cookieStore) {
 	$scope.resetValues = function() {
 		$scope.general = {
 			username: $cookieStore.get('username'),
@@ -28,5 +28,21 @@ function MainController($scope, $cookieStore) {
 
 	$scope.hasLoginFailed = function() {
 		return ((typeof $scope.general.loginOrSignupFailureMessage !== "undefined") && ($scope.general.loginOrSignupFailureMessage !== null));	
+	};
+
+	$scope.toggleLanguageEnglish = function() {
+		$translate.uses('en');
+	};
+
+	$scope.toggleLanguageToFrench = function() {
+		$translate.uses('fr');
+	};
+
+	$scope.showingFrench = function() {
+		return $translate.uses() === 'fr';
+	};
+
+	$scope.showingEnglish = function() {
+		return $translate.uses() === 'en';
 	};
 }

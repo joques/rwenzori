@@ -1,6 +1,20 @@
 <div class="container">
 	<div class="masthead">
-		<h3 class="muted">{{'GREETINGS' | translate}} Rwenzori!</h3>
+
+		<!-- greeting line and locales button -->
+		<div class="container">
+			<div class="btn-group pull-right">
+				<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+					{{'LANGUAGES' | translate}}
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li class="" ng-show="! showingEnglish()"><a href="" ng-click="toggleLanguageEnglish()">EN</a></li>
+					<li class="" ng-show="!showingFrench()"><a href="" ng-click="toggleLanguageToFrench()">FR</a></li>
+				</ul>
+			</div>
+			<h3 class="muted">{{'GREETINGS' | translate}} Rwenzori!</h3>
+		</div>		
 
 		<!-- fixed navbar -->
 		<div class="navbar navbar-fixed-top">
@@ -8,20 +22,10 @@
 				<div class="container">
 					<div class="nav-collapse collapse">
 						<ul class="nav pull-right">
-							<li class=""><a href="/"><i class="icon-home"></i>Home</a></li>
+							<li class=""><a href="/"><i class="icon-home"></i>Rwenzori</a></li>
 							<li class="divider-vertical"></li>
-							<li class="dropdown" id="locales-menu">
-								<a class="dropdown-toggle" href="#" data-toggle="dropdown">
-									<b class="caret"></b>
-								</a>
-								<ul class="dropdown-menu">
-									<li class=""><a tabindex="-1" href="/list">EN</a></li>
-									<li class=""><a tabindex="-1" href="/list">FR</a></li>
-									<li class=""><a tabindex="-1" href="/list">SP</a></li>
-								</ul>
-							</li>
 							<li class="divider"></li>
-							<li class="" ng-show="!loggedIn()"><a href="/login">Log In</a></li>
+							<li class="" ng-show="!loggedIn()"><a href="/login">{{'LOGIN' | translate}}</a></li>
 							<li class="dropdown" id="user-menu" ng-show="loggedIn()">
 								<a class="dropdown-toggle" href="#" data-toggle="dropdown">Welcome, {{general.username}}
 									<b class="caret"></b>
@@ -44,7 +48,9 @@
 				</div>
 			</div>
 		</div>
+
 	</div>
+	
 
 	<div class="hero-unit">
 		<blockquote class="pull-right">
@@ -73,7 +79,7 @@
 				</div>
 				<div class="span4 small">
 					<div class="well">
-						<h3>Phone usave</h3>
+						<h3>Phone usage</h3>
 					</div>
 					<div class="welly">
 						<p>Depending on how long people have used a phone</p>
