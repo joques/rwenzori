@@ -1,0 +1,93 @@
+<div class="container">
+	<div class="masthead">
+		<h3 class="muted">{{'GREETINGS' | translate}} Rwenzori!</h3>
+
+		<!-- fixed navbar -->
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<div class="nav-collapse collapse">
+						<ul class="nav pull-right">
+							<li class=""><a href="/"><i class="icon-home"></i>Home</a></li>
+							<li class="divider-vertical"></li>
+							<li class="dropdown" id="locales-menu">
+								<a class="dropdown-toggle" href="#" data-toggle="dropdown">
+									<b class="caret"></b>
+								</a>
+								<ul class="dropdown-menu">
+									<li class=""><a tabindex="-1" href="/list">EN</a></li>
+									<li class=""><a tabindex="-1" href="/list">FR</a></li>
+									<li class=""><a tabindex="-1" href="/list">SP</a></li>
+								</ul>
+							</li>
+							<li class="divider"></li>
+							<li class="" ng-show="!loggedIn()"><a href="/login">Log In</a></li>
+							<li class="dropdown" id="user-menu" ng-show="loggedIn()">
+								<a class="dropdown-toggle" href="#" data-toggle="dropdown">Welcome, {{general.username}}
+									<b class="caret"></b>
+								</a>
+								<ul class="dropdown-menu">
+									<li class="" ng-show="canDevelop()"><a tabindex="-1" href="/list">Start Project</a></li>
+									<li class="" ng-show="canDevelop()"><a tabindex="-1" href="/list">Complete Project</a></li>
+									<li class="divider" ng-show="canDevelop()"></li>
+									<li class="">
+										<a tabindex="-1" href="/new">{{'SURVEYBTN' | translate}}</a>
+									</li>
+									<li class="divider"></li>
+									<li class="">
+										<a tabindex="-1" href="/logout"><i class="icon-off"></i> Log Out</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="hero-unit">
+		<blockquote class="pull-right">
+			<p>Life is what happens to us when we are busy making other plans</p>
+			<small>John Lenon</small>
+		</blockquote>
+	</div>
+
+	<div class="jumbotron">
+		<h1>{{'MOBILEPHONETITLE' | translate}}</h1>
+		<p class="lead">{{'MOBILEPHONESUBTITLE' | translate}}</p>
+		<div class="download-info">
+			<a class="btn btn-large btn-success" href="/survey">{{'SURVEYBTN' | translate}}</a>
+		</div>
+	</div>
+	<div class="container">
+		<div class="pagination-centered">
+			<div class="row-fluid">
+				<div class="span4  small">
+					<div class="well">
+						<h3>Brand and Cost</h3>
+					</div>
+					<div class="welly">
+						<p>We would like to know what are the most popular brands</p>
+					</div>
+				</div>
+				<div class="span4 small">
+					<div class="well">
+						<h3>Phone usave</h3>
+					</div>
+					<div class="welly">
+						<p>Depending on how long people have used a phone</p>
+					</div>
+				</div>
+				<div class="span4 small">
+					<div class="well">
+						<h3>Insurance habit</h3>
+					</div>
+					<div class="welly">
+						<p>Would you insure your mobile devices</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

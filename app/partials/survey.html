@@ -1,0 +1,88 @@
+<div class="container">
+	<div class="span10 offset1">
+		<form class="form-horizontal" name="surveyForm1">
+			<div class="control-group">
+				<label class="control-label" for="everUsedAPhone">Have you ever used a phone?</label>
+				<div class="controls">
+					<select name="everUsedAPhone" ng-model="surveyData.everUsedAPhone" ng-options="eValue for eValue in BoolOptions"></select>
+				</div>
+			</div>
+		</form>
+		<br>
+		<div class="hero-unit" ng-show="isPhoneUser()">
+			<form class="form-horizontal" name="surveyForm">
+				<fieldset>
+					<legend>Existing phone user</legend>
+					<div class="control-group">
+						<label class="control-label" for="usageTime">Have long have had a phone?</label>
+						<div class="controls">
+							<select name="usageTime" ng-model="surveyData.usageTime" ng-options="eValue for eValue in usageTimeOptions"></select>
+						</div>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+		<br>
+		<div class="hero-unit" ng-show="isPotentialPhoneUser()">
+			<form class="form-horizontal" name="surveyForm2">
+				<fieldset>
+					<legend>Potential phone user</legend>
+					<div class="control-group">
+						<label class="control-label" for="acquirePlan">Are you planning to get a cellphone?</label>
+						<div class="controls">
+							<select name="acquirePlan" ng-model="surveyData.acquirePlan" ng-options="eValue for eValue in BoolOptions"></select>
+						</div>
+					</div>
+					<div class="control-group" ng-show="willAcquirePhone()">
+						<label class="control-label" for="favoriteBrand">What is your favorite brand?</label>
+						<div class="controls">
+							<input class="span3" ng-model="surveyData.favoriteBrand" name="favoriteBrand" type="text" size="16" placeholder="Favorite Brand">
+						</div>
+					</div>
+					<div class="control-group" ng-show="willAcquirePhone()">
+						<label class="control-label" for="phoneValue">What value of cellphone would you like to have?</label>
+						<div class="controls">
+							<select name="phoneValue" ng-model="surveyData.phoneValue" ng-options="pValue for pValue in phoneValueOptions"></select>
+						</div>
+					</div>
+					<div class="control-group" ng-show="willAcquirePhone()">
+						<label class="control-label" for="phonePlan">What cellphone plan would you prefer to have?</label>
+						<div class="controls">
+							<select name="phonePlan" ng-model="surveyData.phonePlan" ng-options="plValue for plValue in phonePlanOptions"></select>
+						</div>
+					</div>
+					<div class="control-group" ng-show="willAcquirePhone()">
+						<label class="control-label" for="insuranceWill">Would you like an insurance for your phone?</label>
+						<div class="controls">
+							<select name="insuranceWill" ng-model="surveyData.insuranceWill" ng-options="iwValue for iwValue in BoolOptions"></select>
+						</div>
+					</div>
+					<div class="control-group" ng-show="willInsure()">
+						<label class="control-label" for="insurancePercentage">What percentage would you like to insure?</label>
+						<div class="controls">
+							<select name="insurancePercentage" ng-model="surveyData.insurancePercentage" ng-options="ipValue for ipValue in insurancePercentageOptions"></select>
+						</div>
+					</div>
+					<div class="control-group" ng-show="willAcquirePhone()">
+						<label class="control-label" for="knowCarrier">Do you know a carrier offering an insurance on phones?</label>
+						<div class="controls">
+							<select name="knowCarrier" ng-model="surveyData.knowCarrier" ng-options="cValue for cValue in BoolOptions"></select>
+						</div>
+					</div>
+					<div class="control-group" ng-show="existsCarrierWithInsurancePlan()">
+						<label class="control-label" for="moreOnCarrier">Please state</label>
+						<div class="controls">
+							<textarea class="span4" ng-model="surveyData.moreOnCarrier" name="moreOnCarrier" rows="3" placeholder="Tell us about the carriers and their plans"></textarea>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<div class="control-group pull-right">
+						<button class="btn btn-primary" ng-click="submitSurvey()" ng-disabled="! canSubmit()">Submit</button>
+						<a href="/" class="btn">Cancel</a>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
