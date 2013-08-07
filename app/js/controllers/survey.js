@@ -35,7 +35,18 @@ function SurveyController ($scope, $translate, $location) {
 		}
 	};
 
+	$scope.getPhoneChangeFrequencyOptions = function() {
+		if ($translate.uses() === 'fr') {
+			return ['jamais', 'une fois', 'deux fois', 'trois fois', 'quatre fois', 'cinq fois', 'six fois', 'sept fois', 'huit fois'];
+		} else if ($translate.uses() === 'en') {
+			return ['never', 'once', 'twice', 'thrice', 'four times', 'five times', 'six times', 'seven times', 'eight times'];
+		} else {
+			return ['never', 'once', 'twice', 'thrice', 'four times', 'five times', 'six times', 'seven times', 'eight times'];
+		}
+	};
+
 	$scope.insurancePercentageOptions = ['1%', '2%', '3%', '4%', '5%', '6%', '7%', '8%', '9%', '10%', '15%', '20%', '25+%'];
+	$scope.phoneCountOptions = ['0-1', '2-4', '5-6', '7-8', '9-10', '10+'];
 
 	$scope.resetValues = function() {
 		if ($translate.uses() === 'fr') {
@@ -47,7 +58,20 @@ function SurveyController ($scope, $translate, $location) {
 				phonePlan: 'Payer à la consommation',
 				insuranceWill: 'non',
 				insurancePercentage: '1%',
-				knowCarrier: 'non'
+				knowCarrier: 'non',
+				phoneCount: '0-1',
+				phoneChange: 'non',
+				phoneChangeFrequency: 'jamais',
+				phoneChangeCount: '0-1',
+				nokiaBrand: false,
+				samsungBrand: false,
+				ericksonBrand: false,
+				htcBrand: false,
+				iphoneBrand: false,
+				blackberryBrand: false,
+				motorollaBrand: false,
+				galaxyBrand: false,
+				cellphoneValue: '0-20000'
 			};
 		} else if ($translate.uses() === 'en') {
 			$scope.surveyData = {
@@ -58,7 +82,20 @@ function SurveyController ($scope, $translate, $location) {
 				phonePlan: 'Pay as you go',
 				insuranceWill: 'no',
 				insurancePercentage: '1%',
-				knowCarrier: 'no'
+				knowCarrier: 'no',
+				phoneCount: '0-1',
+				phoneChange: 'no',
+				phoneChangeFrequency: 'never',
+				phoneChangeCount: '0-1',
+				nokiaBrand: false,
+				samsungBrand: false,
+				ericksonBrand: false,
+				htcBrand: false,
+				iphoneBrand: false,
+				blackberryBrand: false,
+				motorollaBrand: false,
+				galaxyBrand: false,
+				cellphoneValue: '0-20000'
 			};
 		} else {
 			$scope.surveyData = {
@@ -69,7 +106,20 @@ function SurveyController ($scope, $translate, $location) {
 				phonePlan: 'Pay as you go',
 				insuranceWill: 'no',
 				insurancePercentage: '1%',
-				knowCarrier: 'no'
+				knowCarrier: 'no',
+				phoneCount: '0-1',
+				phoneChange: 'no',
+				phoneChangeFrequency: 'never',
+				phoneChangeCount: '0-1',
+				nokiaBrand: false,
+				samsungBrand: false,
+				ericksonBrand: false,
+				htcBrand: false,
+				iphoneBrand: false,
+				blackberryBrand: false,
+				motorollaBrand: false,
+				galaxyBrand: false,
+				cellphoneValue: '0-20000'
 			};
 		}
 	};
@@ -93,6 +143,16 @@ function SurveyController ($scope, $translate, $location) {
 			return (($scope.surveyData.everUsedAPhone !== undefined) && ($scope.surveyData.everUsedAPhone === "no"));
 		} else {
 			return (($scope.surveyData.everUsedAPhone !== undefined) && ($scope.surveyData.everUsedAPhone === "no"));
+		}
+	};
+
+	$scope.hasChangedPhone = function() {
+		if ($translate.uses() === 'fr') {
+			return (($scope.surveyData.phoneChange !== undefined) && ($scope.surveyData.phoneChange === "oui"));
+		} else if ($translate.uses() === 'en') {
+			return (($scope.surveyData.phoneChange !== undefined) && ($scope.surveyData.phoneChange === "yes"));
+		} else {
+			return (($scope.surveyData.phoneChange !== undefined) && ($scope.surveyData.phoneChange === "yes"));
 		}
 	};
 
@@ -126,7 +186,7 @@ function SurveyController ($scope, $translate, $location) {
 		}
 	};
 
-	$scope.canSubmit = function() {
+	$scope.canSubmitPotential = function() {
 		if ($translate.uses() === 'fr') {
 			return (($scope.surveyData.acquirePlan !== undefined) && ($scope.surveyData.acquirePlan === "oui") && ($scope.surveyData.favoriteBrand !== undefined) && ($scope.surveyData.favoriteBrand.length > 0));
 		} else if ($translate.uses() === 'en') {
@@ -134,7 +194,16 @@ function SurveyController ($scope, $translate, $location) {
 		} else {
 			return (($scope.surveyData.acquirePlan !== undefined) && ($scope.surveyData.acquirePlan === "yes") && ($scope.surveyData.favoriteBrand !== undefined) && ($scope.surveyData.favoriteBrand.length > 0));
 		}
-		
+	};
+
+	$scope.canSubmitConfirmed = function() {
+		if ($translate.uses() === 'fr') {
+			return false;
+		} else if ($translate.uses() === 'en') {
+			return false;
+		} else {
+			return false;
+		}
 	};
 
 	$scope.submitSurvey = function() {
