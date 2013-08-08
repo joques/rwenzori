@@ -200,6 +200,17 @@ function SurveyController ($scope, $translate, $location) {
 		}
 	};
 
+	$scope.willInsureCurrent = function() {
+		if ($translate.uses() === 'fr') {
+			return (($scope.surveyData.insuranceWill !== undefined) && ($scope.surveyData.insuranceWill === "oui"));
+		} else if ($translate.uses() === 'en') {
+			return (($scope.surveyData.insuranceWill !== undefined) && ($scope.surveyData.insuranceWill === "yes"));
+		} else {
+			return (($scope.surveyData.insuranceWill !== undefined) && ($scope.surveyData.insuranceWill === "yes"));
+		}
+	};
+
+
 	$scope.checkCanAfford = function() {
 		if ($translate.uses() === 'fr') {
 			return (($scope.surveyData.canAfford !== undefined) && ($scope.surveyData.canAfford === "oui"));
