@@ -1,0 +1,7 @@
+Todo List
+
+1 - cleanup the fields for the questionnaire object
+2 - add the method to arrange the data before storing in database
+3 - add the database functionality for storing the survey
+4 - Add a badge to the main page indicating how many people have taken the survey so far
+5 - Add more text on the main page to entice the user to take the survey
