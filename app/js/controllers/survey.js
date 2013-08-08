@@ -2,6 +2,8 @@
 
 // survey controller
 
+// need a smarter way of checking the language and deciding which value to use
+
 function SurveyController ($scope, $translate, $location) {
 	$scope.getBoolOptions = function() {
 		if ($translate.uses() === 'fr') {
@@ -48,6 +50,16 @@ function SurveyController ($scope, $translate, $location) {
 	$scope.insurancePercentageOptions = ['1%', '2%', '3%', '4%', '5%', '6%', '7%', '8%', '9%', '10%', '15%', '20%', '25+%'];
 	$scope.phoneCountOptions = ['0-1', '2-4', '5-6', '7-8', '9-10', '10+'];
 
+	$scope.getInsuranceOptions = function() {
+		if ($translate.uses() === 'fr') {
+			return ['Remplacer le téléphone en cas de perte', 'Remplacer le téléphone en cas de panne', 'Choisir les deux options'];
+		} else if ($translate.uses() === 'en') {
+			return ['Replace the phone when lost', 'Replace the phone when damaged', 'Choose both options'];
+		} else {
+			return ['Replace the phone when lost', 'Replace the phone when damaged', 'Choose both options'];
+		}
+	};
+
 	$scope.resetValues = function() {
 		if ($translate.uses() === 'fr') {
 			$scope.surveyData = {
@@ -73,7 +85,9 @@ function SurveyController ($scope, $translate, $location) {
 				galaxyBrand: false,
 				cellphoneValue: '0-20000',
 				cellPhonePlan: 'Payer à la consommation',
-				willChangeCellPhone: 'non'
+				willChangeCellPhone: 'non',
+				canAfford: 'non',
+				whichInsurance: 'Remplacer le téléphone en cas de perte'
 			};
 		} else if ($translate.uses() === 'en') {
 			$scope.surveyData = {
@@ -99,7 +113,9 @@ function SurveyController ($scope, $translate, $location) {
 				galaxyBrand: false,
 				cellphoneValue: '0-20000',
 				cellPhonePlan: 'Pay as you go',
-				willChangeCellPhone: 'no'
+				willChangeCellPhone: 'no',
+				canAfford: 'no',
+				whichInsurance: 'Replace the phone when lost'
 			};
 		} else {
 			$scope.surveyData = {
@@ -125,7 +141,9 @@ function SurveyController ($scope, $translate, $location) {
 				galaxyBrand: false,
 				cellphoneValue: '0-20000',
 				cellPhonePlan: 'Pay as you go',
-				willChangeCellPhone: 'no'
+				willChangeCellPhone: 'no',
+				canAfford: 'no',
+				whichInsurance: 'Replace the phone when lost'
 			};
 		}
 	};
@@ -179,6 +197,16 @@ function SurveyController ($scope, $translate, $location) {
 			return (($scope.surveyData.insuranceWill !== undefined) && ($scope.surveyData.insuranceWill === "yes"));
 		} else {
 			return (($scope.surveyData.insuranceWill !== undefined) && ($scope.surveyData.insuranceWill === "yes"));
+		}
+	};
+
+	$scope.checkCanAfford = function() {
+		if ($translate.uses() === 'fr') {
+			return (($scope.surveyData.canAfford !== undefined) && ($scope.surveyData.canAfford === "oui"));
+		} else if ($translate.uses() === 'en') {
+			return (($scope.surveyData.canAfford !== undefined) && ($scope.surveyData.canAfford === "yes"));
+		} else {
+			return (($scope.surveyData.canAfford !== undefined) && ($scope.surveyData.canAfford === "yes"));
 		}
 	};
 

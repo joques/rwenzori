@@ -17,7 +17,7 @@
 	</div>
 
 	<div class="span10 offset1">
-		<form class="form-horizontal" name="surveyForm1">
+		<form class="form-horizontal questionnaire" name="surveyForm1">
 			<div class="control-group">
 				<label class="control-label" for="everUsedAPhone">{{'QUESTION0' | translate}}</label>
 				<div class="controls">
@@ -27,7 +27,7 @@
 		</form>
 		<br>
 		<div class="hero-unit" ng-show="isPhoneUser()">
-			<form class="form-horizontal" name="surveyForm">
+			<form class="form-horizontal questionnaire" name="surveyForm">
 				<fieldset>
 					<legend>{{'ALREADYUSERLEGEND' | translate}}</legend>
 					<div class="control-group">
@@ -129,6 +129,24 @@
 								<select name="willChangeCellPhone" ng-model="surveyData.willChangeCellPhone" ng-options="wValue for wValue in getBoolOptions()"></select>
 							</div>
 						</div>
+						<div class="control-group">
+							<label class="control-label" for="canAfford">{{'QUESTION192' | translate}}</label>
+							<div class="controls">
+								<select name="canAfford" ng-model="survetData.canAfford" ng-options="caValue for caValue in getBoolOpions()"></select>
+							</div>
+						</div>
+						<div class="control-group" ng-show="checkCanAfford()">
+							<label class="control-label" for="whichInsurance">{{'QUESTION193' | translate}}</label>
+							<div class="controls">
+								<select name="whichInsurance" ng-model="survetData.whichInsurance" ng-options="wiValue for caValue in getInsuranceOptions()"></select>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-group" for="whyNotInsurance">{{'QUESTION194' | translate}}</label>
+							<div class="controls">
+								<textarea class="span4" ng-model="surveyData.whyNotInsurance" name="whyNotInsurance" rows="3" placeholder="{{'REASONPH' | translate}}"></textarea>
+							</div>
+						</div>
 					</fieldset>
 					<fieldset>
 						<div class="control-group pull-right">
@@ -141,7 +159,7 @@
 		</div>
 		<br>
 		<div class="hero-unit" ng-show="isPotentialPhoneUser()">
-			<form class="form-horizontal" name="surveyForm2">
+			<form class="form-horizontal questionnaire" name="surveyForm2">
 				<fieldset>
 					<legend>{{'POTENTIALUSERLEGEND' | translate}}</legend>
 					<div class="control-group">
