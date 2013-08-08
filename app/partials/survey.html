@@ -195,7 +195,7 @@
 					<div class="control-group">
 						<label class="control-label" for="acquirePlan">{{'QUESTION20' | translate}}</label>
 						<div class="controls">
-							<select name="acquirePlan" ng-model="surveyData.acquirePlan" ng-options="eValue for eValue in getBoolOptions()"></select>
+							<select class="span1" name="acquirePlan" ng-model="surveyData.acquirePlan" ng-options="eValue for eValue in getBoolOptions()"></select>
 						</div>
 					</div>
 					<div class="control-group" ng-show="willAcquirePhone()">
@@ -207,31 +207,31 @@
 					<div class="control-group" ng-show="willAcquirePhone()">
 						<label class="control-label" for="phoneValue">{{'QUESTION22' | translate}}</label>
 						<div class="controls">
-							<select name="phoneValue" ng-model="surveyData.phoneValue" ng-options="pValue for pValue in phoneValueOptions"></select>
+							<select class="span2" name="phoneValue" ng-model="surveyData.phoneValue" ng-options="pValue for pValue in phoneValueOptions"></select>
 						</div>
 					</div>
 					<div class="control-group" ng-show="willAcquirePhone()">
 						<label class="control-label" for="phonePlan">{{'QUESTION23' | translate}}</label>
 						<div class="controls">
-							<select name="phonePlan" ng-model="surveyData.phonePlan" ng-options="plValue for plValue in getPhonePlanOptions()"></select>
+							<select class="span3" name="phonePlan" ng-model="surveyData.phonePlan" ng-options="plValue for plValue in getPhonePlanOptions()"></select>
 						</div>
 					</div>
 					<div class="control-group" ng-show="willAcquirePhone()">
 						<label class="control-label" for="insuranceWill">{{'QUESTION24' | translate}}</label>
 						<div class="controls">
-							<select name="insuranceWill" ng-model="surveyData.insuranceWill" ng-options="iwValue for iwValue in getBoolOptions()"></select>
+							<select class="span1" name="insuranceWill" ng-model="surveyData.insuranceWill" ng-options="iwValue for iwValue in getBoolOptions()"></select>
 						</div>
 					</div>
 					<div class="control-group" ng-show="willInsure()">
 						<label class="control-label" for="insurancePercentage">{{'QUESTION25' | translate}}</label>
 						<div class="controls">
-							<select name="insurancePercentage" ng-model="surveyData.insurancePercentage" ng-options="ipValue for ipValue in insurancePercentageOptions"></select>
+							<select class="span1" name="insurancePercentage" ng-model="surveyData.insurancePercentage" ng-options="ipValue for ipValue in insurancePercentageOptions"></select>
 						</div>
 					</div>
 					<div class="control-group" ng-show="willAcquirePhone()">
 						<label class="control-label" for="knowCarrier">{{'QUESTION26' | translate}}</label>
 						<div class="controls">
-							<select name="knowCarrier" ng-model="surveyData.knowCarrier" ng-options="cValue for cValue in getBoolOptions()"></select>
+							<select class="span1" name="knowCarrier" ng-model="surveyData.knowCarrier" ng-options="cValue for cValue in getBoolOptions()"></select>
 						</div>
 					</div>
 					<div class="control-group" ng-show="existsCarrierWithInsurancePlan()">
