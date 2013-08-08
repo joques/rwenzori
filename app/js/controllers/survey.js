@@ -71,7 +71,9 @@ function SurveyController ($scope, $translate, $location) {
 				blackberryBrand: false,
 				motorollaBrand: false,
 				galaxyBrand: false,
-				cellphoneValue: '0-20000'
+				cellphoneValue: '0-20000',
+				cellPhonePlan: 'Payer à la consommation',
+				willChangeCellPhone: 'non'
 			};
 		} else if ($translate.uses() === 'en') {
 			$scope.surveyData = {
@@ -95,7 +97,9 @@ function SurveyController ($scope, $translate, $location) {
 				blackberryBrand: false,
 				motorollaBrand: false,
 				galaxyBrand: false,
-				cellphoneValue: '0-20000'
+				cellphoneValue: '0-20000',
+				cellPhonePlan: 'Pay as you go',
+				willChangeCellPhone: 'no'
 			};
 		} else {
 			$scope.surveyData = {
@@ -119,7 +123,9 @@ function SurveyController ($scope, $translate, $location) {
 				blackberryBrand: false,
 				motorollaBrand: false,
 				galaxyBrand: false,
-				cellphoneValue: '0-20000'
+				cellphoneValue: '0-20000',
+				cellPhonePlan: 'Pay as you go',
+				willChangeCellPhone: 'no'
 			};
 		}
 	};
