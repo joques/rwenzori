@@ -87,7 +87,9 @@ function SurveyController ($scope, $translate, $location) {
 				cellPhonePlan: 'Payer à la consommation',
 				willChangeCellPhone: 'non',
 				canAfford: 'non',
-				whichInsurance: 'Remplacer le téléphone en cas de perte'
+				whichInsurance: 'Remplacer le téléphone en cas de perte',
+				insureCurrent: 'non',
+				percentageForCurrent: '1%'
 			};
 		} else if ($translate.uses() === 'en') {
 			$scope.surveyData = {
@@ -115,7 +117,9 @@ function SurveyController ($scope, $translate, $location) {
 				cellPhonePlan: 'Pay as you go',
 				willChangeCellPhone: 'no',
 				canAfford: 'no',
-				whichInsurance: 'Replace the phone when lost'
+				whichInsurance: 'Replace the phone when lost',
+				insureCurrent: 'no',
+				percentageForCurrent: '1%'
 			};
 		} else {
 			$scope.surveyData = {
@@ -143,7 +147,9 @@ function SurveyController ($scope, $translate, $location) {
 				cellPhonePlan: 'Pay as you go',
 				willChangeCellPhone: 'no',
 				canAfford: 'no',
-				whichInsurance: 'Replace the phone when lost'
+				whichInsurance: 'Replace the phone when lost',
+				insureCurrent: 'no',
+				percentageForCurrent: '1%'
 			};
 		}
 	};
@@ -202,11 +208,11 @@ function SurveyController ($scope, $translate, $location) {
 
 	$scope.willInsureCurrent = function() {
 		if ($translate.uses() === 'fr') {
-			return (($scope.surveyData.insuranceWill !== undefined) && ($scope.surveyData.insuranceWill === "oui"));
+			return (($scope.surveyData.insureCurrent !== undefined) && ($scope.surveyData.insureCurrent === "oui"));
 		} else if ($translate.uses() === 'en') {
-			return (($scope.surveyData.insuranceWill !== undefined) && ($scope.surveyData.insuranceWill === "yes"));
+			return (($scope.surveyData.insureCurrent !== undefined) && ($scope.surveyData.insureCurrent === "yes"));
 		} else {
-			return (($scope.surveyData.insuranceWill !== undefined) && ($scope.surveyData.insuranceWill === "yes"));
+			return (($scope.surveyData.insureCurrent !== undefined) && ($scope.surveyData.insureCurrent === "yes"));
 		}
 	};
 

@@ -21,7 +21,7 @@
 			<div class="control-group">
 				<label class="control-label" for="everUsedAPhone">{{'QUESTION0' | translate}}</label>
 				<div class="controls">
-					<select name="everUsedAPhone" ng-model="surveyData.everUsedAPhone" ng-options="eValue for eValue in getBoolOptions()"></select>
+					<select class="span1" name="everUsedAPhone" ng-model="surveyData.everUsedAPhone" ng-options="eValue for eValue in getBoolOptions()"></select>
 				</div>
 			</div>
 		</form>
@@ -33,13 +33,13 @@
 					<div class="control-group">
 						<label class="control-label" for="usageTime">{{'QUESTION10' | translate}}</label>
 						<div class="controls">
-							<select name="usageTime" ng-model="surveyData.usageTime" ng-options="eValue for eValue in getUsageTimeOptions()"></select>
+							<select class="span2" name="usageTime" ng-model="surveyData.usageTime" ng-options="eValue for eValue in getUsageTimeOptions()"></select>
 						</div>
 					</div>
 						<div class="control-group">
 							<label class="control-label" for="phoneCount">{{'QUESTION11' | translate}}</label>
 							<div class="controls">
-								<select name="phoneCount" ng-model="surveyData.phoneCount" ng-options="pcValue for pcValue in phoneCountOptions"></select>
+								<select class="span1" name="phoneCount" ng-model="surveyData.phoneCount" ng-options="pcValue for pcValue in phoneCountOptions"></select>
 							</div>
 						</div>
 						<div class="control-group">
@@ -51,19 +51,19 @@
 						<div class="control-group">
 							<label class="control-label" for="phoneChange">{{'QUESTION13' | translate}}</label>
 							<div class="controls">
-								<select name="phoneChange" ng-model="surveyData.phoneChange" ng-options="pcValue for pcValue in getBoolOptions()"></select>
+								<select class="span1" name="phoneChange" ng-model="surveyData.phoneChange" ng-options="pcValue for pcValue in getBoolOptions()"></select>
 							</div>
 						</div>
 						<div class="control-group" ng-show="hasChangedPhone()">
 							<label class="control-label" for="phoneChangeFrequency">{{'QUESTION14' | translate}}</label>
 							<div class="controls">
-								<select name="phoneChangeFrequency" ng-model="surveyData.phoneChangeFrequency" ng-options="pcValue for pcValue in getPhoneChangeFrequencyOptions()"></select>
+								<select class="span2" name="phoneChangeFrequency" ng-model="surveyData.phoneChangeFrequency" ng-options="pcValue for pcValue in getPhoneChangeFrequencyOptions()"></select>
 							</div>
 						</div>
 						<div class="control-group" ng-show="hasChangedPhone()">
 							<label class="control-label" for="phoneChangeCount">{{'QUESTION15' | translate}}</label>
 							<div class="controls">
-								<select name="phoneChangeCount" ng-model="surveyData.phoneChangeCount" ng-options="pcValue for pcValue in phoneCountOptions"></select>
+								<select class="span1" name="phoneChangeCount" ng-model="surveyData.phoneChangeCount" ng-options="pcValue for pcValue in phoneCountOptions"></select>
 							</div>
 						</div>
 						<div class="control-group">
@@ -93,7 +93,7 @@
 								</label>
 								<label class="checkbox inline">
 								    <input type="checkbox" name="blackberryBrand" ng-model="surveyData.blackberryBrand">
-								    BalckBerry
+								    BlackBerry
 								</label>
 								<label class="checkbox inline">
 								    <input type="checkbox" name="motorollaBrand" ng-model="surveyData.motorollaBrand">
@@ -114,31 +114,31 @@
 						<div class="control-group">
 							<label class="control-label" for="cellphoneValue">{{'QUESTION18' | translate}}</label>
 							<div class="controls">
-								<select name="cellphoneValue" ng-model="surveyData.cellphoneValue" ng-options="pcValue for pcValue in phoneValueOptions"></select>
+								<select class="span2" name="cellphoneValue" ng-model="surveyData.cellphoneValue" ng-options="pcValue for pcValue in phoneValueOptions"></select>
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label" for="cellPhonePlan">{{'QUESTION19' | translate}}</label>
 							<div class="controls">
-								<select name="cellPhonePlan" ng-model="surveyData.cellPhonePlan" ng-options="plValue for plValue in getPhonePlanOptions()"></select>
+								<select class="span3" name="cellPhonePlan" ng-model="surveyData.cellPhonePlan" ng-options="plValue for plValue in getPhonePlanOptions()"></select>
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label" for="willChangeCellPhone">{{'QUESTION191' | translate}}</label>
 							<div class="controls">
-								<select name="willChangeCellPhone" ng-model="surveyData.willChangeCellPhone" ng-options="wValue for wValue in getBoolOptions()"></select>
+								<select class="span1" name="willChangeCellPhone" ng-model="surveyData.willChangeCellPhone" ng-options="wValue for wValue in getBoolOptions()"></select>
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label" for="canAfford">{{'QUESTION192' | translate}}</label>
 							<div class="controls">
-								<select name="canAfford" ng-model="survetData.canAfford" ng-options="caValue for caValue in getBoolOptions()"></select>
+								<select class="span1" name="canAfford" ng-model="surveyData.canAfford" ng-options="caValue for caValue in getBoolOptions()"></select>
 							</div>
 						</div>
 						<div class="control-group" ng-show="checkCanAfford()">
 							<label class="control-label" for="whichInsurance">{{'QUESTION193' | translate}}</label>
 							<div class="controls">
-								<select name="whichInsurance" ng-model="survetData.whichInsurance" ng-options="wiValue for caValue in getInsuranceOptions()"></select>
+								<select class="span3" name="whichInsurance" ng-model="surveyData.whichInsurance" ng-options="wiValue for wiValue in getInsuranceOptions()"></select>
 							</div>
 						</div>
 						<div class="control-group" ng-show="! checkCanAfford()">
@@ -150,19 +150,31 @@
 						<div class="control-group">
 							<label class="control-label" for="insureCurrent">{{'QUESTION195' | translate}}</label>
 							<div class="controls">
-								<select name="insureCurrent" ng-model="surveyData.insureCurrent" ng-options="icValue for icValue in getBoolOptions()"></select>
+								<select class="span1" name="insureCurrent" ng-model="surveyData.insureCurrent" ng-options="icValue for icValue in getBoolOptions()"></select>
 							</div>
 						</div>
 						<div class="control-group" ng-show="willInsureCurrent()">
 							<label class="control-label" for="percentageForCurrent">{{'QUESTION196' | translate}}</label>
 							<div class="controls">
-								<select name="percentageForCurrent" ng-model="surveyData.percentageForCurrent" ng-options="pfcValue for pfcValue in insurancePercentageOptions"></select>
+								<select class="span1" name="percentageForCurrent" ng-model="surveyData.percentageForCurrent" ng-options="pfcValue for pfcValue in insurancePercentageOptions"></select>
 							</div>
 						</div>
 						<div class="control-group" ng-show="willInsureCurrent()">
 							<label class="control-label" for="otherPercentageForCurrent">{{'QUESTION197' | translate}}</label>
 							<div class="controls">
 								<input class="span3" ng-model="surveyData.otherPercentageForCurrent" name="otherPercentageForCurrent" type="text" size="16" placeholder="{{'FAVORITEBRANDPH' | translate}}">
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="knowCarrier">{{'QUESTION26' | translate}}</label>
+							<div class="controls">
+								<select class="span1" name="knowCarrier1" ng-model="surveyData.knowCarrier" ng-options="cValue for cValue in getBoolOptions()"></select>
+							</div>
+						</div>
+						<div class="control-group" ng-show="existsCarrierWithInsurancePlan()">
+							<label class="control-label" for="moreOnCarrier">{{'QUESTION27' | translate}}</label>
+							<div class="controls">
+								<textarea class="span4" ng-model="surveyData.moreOnCarrier" name="moreOnCarrier1" rows="3" placeholder="{{'CARRIERSTATEPH' | translate}}"></textarea>
 							</div>
 						</div>
 					</fieldset>
