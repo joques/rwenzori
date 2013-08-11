@@ -54,18 +54,6 @@ body > .navbar {
 	margin-left: 320px;
 }
 
-/*.form-horizontal .control-label {
-  float: left;
-  /*original: width: 140px;*/
-  width: 250px;
-  padding-top: 5px;
-  text-align: right;
-}
-.form-horizontal .controls {
-  /*original: margin-left: 160px;*/
-  margin-left: 250px;
-}
-*/
 .welly {
 	border-radius: 5px;
 	-moz-border-radius: 5px;

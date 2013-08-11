@@ -4,7 +4,7 @@
 
 // need a smarter way of checking the language and deciding which value to use
 
-function SurveyController ($scope, $translate, $location) {
+function SurveyController ($scope, $translate, $location, ToroRes) {
 	$scope.getBoolOptions = function() {
 		if ($translate.uses() === 'fr') {
 			return ['oui', 'non'];
@@ -24,8 +24,6 @@ function SurveyController ($scope, $translate, $location) {
 			return ['0-3 Years', '3-5 Years', '5-10 Years', '10 Years+'];
 		}
 	};
-
-	$scope.phoneValueOptions = ['0-20000', '20000-50000', '50000-80000', '80000-120000', '120000-160000', '160000-200000', '200000-500000', '500000+'];
 
 	$scope.getPhonePlanOptions = function() {
 		if ($translate.uses() === 'fr') {
@@ -47,8 +45,7 @@ function SurveyController ($scope, $translate, $location) {
 		}
 	};
 
-	$scope.insurancePercentageOptions = ['1%', '2%', '3%', '4%', '5%', '6%', '7%', '8%', '9%', '10%', '15%', '20%', '25+%'];
-	$scope.phoneCountOptions = ['0-1', '2-4', '5-6', '7-8', '9-10', '10+'];
+	// $scope.phoneCountOptions = ['0-1', '2-4', '5-6', '7-8', '9-10', '10+'];
 
 	$scope.getInsuranceOptions = function() {
 		if ($translate.uses() === 'fr') {
@@ -64,92 +61,98 @@ function SurveyController ($scope, $translate, $location) {
 		if ($translate.uses() === 'fr') {
 			$scope.surveyData = {
 				everUsedAPhone: 'non',
-				usageTime: '0-3 Ans',
+				howLongUsedAPhone: 0,
+				phoneCount: 0,
+				phoneChange: 'non',
 				acquirePlan: 'non',
 				phoneValue: '0-20000',
 				phonePlan: 'Payer à la consommation',
 				insuranceWill: 'non',
 				insurancePercentage: '1%',
-				knowCarrier: 'non',
-				phoneCount: '0-1',
-				phoneChange: 'non',
+				knowCarrier: 'non',				
 				phoneChangeFrequency: 'jamais',
-				phoneChangeCount: '0-1',
-				nokiaBrand: false,
-				samsungBrand: false,
-				ericksonBrand: false,
-				htcBrand: false,
-				iphoneBrand: false,
-				blackberryBrand: false,
-				motorollaBrand: false,
-				galaxyBrand: false,
-				cellphoneValue: '0-20000',
+				phoneChangeCount: 0,
+				brands: {
+					nokiaBrand: false,
+					samsungBrand: false,
+					ericksonBrand: false,
+					htcBrand: false,
+					iphoneBrand: false,
+					blackberryBrand: false,
+					motorollaBrand: false,
+					galaxyBrand: false
+				},
+				cellphoneValue: 0,
 				cellPhonePlan: 'Payer à la consommation',
 				willChangeCellPhone: 'non',
 				canAfford: 'non',
 				whichInsurance: 'Remplacer le téléphone en cas de perte',
 				insureCurrent: 'non',
-				percentageForCurrent: '1%'
+				percentageForCurrent: 0
 			};
 		} else if ($translate.uses() === 'en') {
 			$scope.surveyData = {
 				everUsedAPhone: 'no',
-				usageTime: '0-3 Years',
+				howLongUsedAPhone: 0,
+				phoneCount: 0,
+				phoneChange: 'no',
 				acquirePlan: 'no',
 				phoneValue: '0-20000',
 				phonePlan: 'Pay as you go',
 				insuranceWill: 'no',
 				insurancePercentage: '1%',
 				knowCarrier: 'no',
-				phoneCount: '0-1',
-				phoneChange: 'no',
 				phoneChangeFrequency: 'never',
-				phoneChangeCount: '0-1',
-				nokiaBrand: false,
-				samsungBrand: false,
-				ericksonBrand: false,
-				htcBrand: false,
-				iphoneBrand: false,
-				blackberryBrand: false,
-				motorollaBrand: false,
-				galaxyBrand: false,
-				cellphoneValue: '0-20000',
+				phoneChangeCount: 0,
+				brands: {
+					nokiaBrand: false,
+					samsungBrand: false,
+					ericksonBrand: false,
+					htcBrand: false,
+					iphoneBrand: false,
+					blackberryBrand: false,
+					motorollaBrand: false,
+					galaxyBrand: false
+				},
+				cellphoneValue: 0,
 				cellPhonePlan: 'Pay as you go',
 				willChangeCellPhone: 'no',
 				canAfford: 'no',
 				whichInsurance: 'Replace the phone when lost',
 				insureCurrent: 'no',
-				percentageForCurrent: '1%'
+				percentageForCurrent: 0
 			};
 		} else {
 			$scope.surveyData = {
 				everUsedAPhone: 'nada',
-				usageTime: '0-3 Years',
+				howLongUsedAPhone: 0,
+				phoneCount: 0,
+				phoneChange: 'no',
 				acquirePlan: 'no',
 				phoneValue: '0-20000',
 				phonePlan: 'Pay as you go',
 				insuranceWill: 'no',
 				insurancePercentage: '1%',
-				knowCarrier: 'no',
-				phoneCount: '0-1',
-				phoneChange: 'no',
+				knowCarrier: 'no',				
 				phoneChangeFrequency: 'never',
-				phoneChangeCount: '0-1',
-				nokiaBrand: false,
-				samsungBrand: false,
-				ericksonBrand: false,
-				htcBrand: false,
-				iphoneBrand: false,
-				blackberryBrand: false,
-				motorollaBrand: false,
-				galaxyBrand: false,
-				cellphoneValue: '0-20000',
+				phoneChangeCount: 0,
+				brands: {
+					nokiaBrand: false,
+					samsungBrand: false,
+					ericksonBrand: false,
+					htcBrand: false,
+					iphoneBrand: false,
+					blackberryBrand: false,
+					motorollaBrand: false,
+					galaxyBrand: false
+				},
+				cellphoneValue: 0,
 				cellPhonePlan: 'Pay as you go',
 				willChangeCellPhone: 'no',
 				canAfford: 'no',
 				whichInsurance: 'Replace the phone when lost',
 				insureCurrent: 'no',
-				percentageForCurrent: '1%'
+				percentageForCurrent: 0
 			};
 		}
 	};
@@ -166,15 +169,18 @@ function SurveyController ($scope, $translate, $location) {
 		
 	};
 
-	$scope.isPotentialPhoneUser = function(){
-		if ($translate.uses() === 'fr') {
-			return (($scope.surveyData.everUsedAPhone !== undefined) && ($scope.surveyData.everUsedAPhone === "non"));
-		} else if ($translate.uses() === 'en') {
-			return (($scope.surveyData.everUsedAPhone !== undefined) && ($scope.surveyData.everUsedAPhone === "no"));
+	$scope.getYearsLabel = function() {
+		if (($scope.surveyData.howLongUsedAPhone === 0) || ($scope.surveyData.howLongUsedAPhone === 1)) {
+			return $translate('YEARLABEL');
 		} else {
-			return (($scope.surveyData.everUsedAPhone !== undefined) && ($scope.surveyData.everUsedAPhone === "no"));
+			return $translate('YEARSLABEL');
 		}
-	};
+		// if (($scope.surveyData.howLongUsedAPhone === 0) || ($scope.surveyData.howLongUsedAPhone === 1)) {
+		// 	return $translate('YEARLABEL', {YEARCOUNT: 'sing'}, 'messageformat');
+		// } else {
+		// 	return $translate('YEARLABEL', {YEARCOUNT: 'other'}, 'messageformat');
+		// }
+	};	
 
 	$scope.hasChangedPhone = function() {
 		if ($translate.uses() === 'fr') {
@@ -248,13 +254,33 @@ function SurveyController ($scope, $translate, $location) {
 	};
 
 	$scope.canSubmitConfirmed = function() {
+		var selectedBrand = $scope.hasSetBrand();
 		if ($translate.uses() === 'fr') {
-			return false;
+			return selectedBrand;
 		} else if ($translate.uses() === 'en') {
-			return false;
+			return selectedBrand;
 		} else {
-			return false;
+			return selectedBrand;
 		}
+	};
+
+	$scope.hasSetBrand = function() {
+		var popularBrandSelected = (($scope.surveyData.brands.nokiaBrand) || ($scope.surveyData.brands.samsungBrand) || ($scope.surveyData.brands.ericksonBrand) || 
+			($scope.surveyData.brands.htcBrand) || ($scope.surveyData.brands.iphoneBrand) || ($scope.surveyData.brands.blackberryBrand) || 
+			($scope.surveyData.brands.motorollaBrand) || ($scope.surveyData.brands.galaxyBrand));
+		if (popularBrandSelected) {
+			return popularBrandSelected;
+		} else {
+			return (($scope.surveyData.otherPhoneBrand !== undefined) && ($scope.surveyData.otherPhoneBrand !== null))
+		}
+	}
+
+	$scope.submitSurveyConfirmed = function() {
+		// filter survey data and send it to database
+	};
+
+	$scope.submitSurveyPotential = function(){
+
 	};
 
 	$scope.submitSurvey = function() {

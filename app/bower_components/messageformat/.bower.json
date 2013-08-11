@@ -1,0 +1,20 @@
+{
+  "name": "messageformat",
+  "repo": "SlexAxton/messageformat.js",
+  "author": "Alex Sexton <alexsexton@gmail.com>",
+  "description": "PluralFormat and SelectFormat Message and i18n Tool - A JavaScript Implemenation of the ICU standards.",
+  "version": "0.1.6",
+  "scripts": [
+    "messageformat.js"
+  ],
+  "main": "messageformat.js",
+  "homepage": "https://github.com/SlexAxton/messageformat.js",
+  "_release": "0.1.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.6",
+    "commit": "41491aa46b50fdbc5373973376a13390d5309def"
+  },
+  "_source": "git://github.com/SlexAxton/messageformat.js.git",
+  "_target": "~0.1.6"
+}

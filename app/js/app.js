@@ -7,6 +7,12 @@ var engTrans = {
 	'SURVEYBTN': 'Take Survey',
 	'MOBILEPHONETITLE': 'Improving mobile phone usage...',
 	'MOBILEPHONESUBTITLE': 'Share your cellphone usage with us and we will help you keep it longer',
+	'BRANDTITLE': 'Brand and Cost',
+	'BRANDCONTENT': 'We would like to know what are the most popular brands',
+	'PHONEUSAGETITLE': 'Phone Usage',
+	'PHONEUSAGECONTENT':'Depending on how long people have used a phone',
+	'INSURANCEHABITTITLE': 'Insurance Habit',
+	'INSURANCEHABITCONTENT': 'Would you insure your mobile devices',
 	'FAVORITEBRANDPH': 'Favorite brand',
 	'CARRIERSTATEPH':'Tell us about the carriers and their plans',
 	'CARRIERNAMEPH': 'Carrier Name',
@@ -42,7 +48,13 @@ var engTrans = {
 	'QUESTION26': 'Do you know a carrier offering an insurance on phones?',
 	'QUESTION27': 'Please state',
 	'SUBMITBTN': 'Submit',
-	'CANCELBTN': 'Cancel'
+	'CANCELBTN': 'Cancel',
+	// "YEARLABEL": "{YEARCOUNT, select, sing{Year} other{Years}}",
+	"YEARLABEL": "Year",
+	"YEARSLABEL": "Years",
+	"SURVEYLABEL": "survey response already!",
+	"SURVEYSLABEL": "survey responses already!"
+	// "SURVEYLABEL": "survey {SURVEYCOUNT, select, sing{response} other{responses}} already!"
 };
 var frTrans = {
 	'LANGUAGES': 'Langages',
@@ -50,7 +62,13 @@ var frTrans = {
 	'GREETINGS': 'Bienvenue à',
 	'SURVEYBTN': 'Répondre au questionnaire',
 	'MOBILEPHONETITLE': 'Améliorer l\'usage des téléphones mobiles',
-	'MOBILEPHONESUBTITLE': 'Share your cellphone usage with us and we will help you keep it longer',
+	'MOBILEPHONESUBTITLE': 'Partagez votre expérience avec les téléphones mobiles et nous vous aiderons à les garder plus longtemps',
+	'BRANDTITLE': 'Marque et Coût',
+	'BRANDCONTENT': 'Parlez-nous de vos marques préférées',
+	'PHONEUSAGETITLE': 'Utilisation',
+	'PHONEUSAGECONTENT':'Depuis quand utilisez-vous un téléphone',
+	'INSURANCEHABITTITLE': 'Assurance',
+	'INSURANCEHABITCONTENT': 'Prendrez-vous la peine d\'assurer votre téléphone',
 	'FAVORITEBRANDPH': 'Marque préférée',
 	'CARRIERSTATEPH':'Fournissez nous plus de détails',
 	'CARRIERNAMEPH': 'Opérateur',
@@ -67,7 +85,7 @@ var frTrans = {
 	'QUESTION16': 'Quelle marque de téléphone avez-vous utilisé les cinq dernières années ?',
 	'QUESTION17': 'Autres marques ?',
 	'QUESTION18': 'Quelle est la valeur de votre téléphone ?',
-	'QUESTION19': 'Quel type de forfait utilisez-vous en ce moment ?',
+	'QUESTION19': 'Quel forfait utilisez-vous en ce moment ?',
 	'QUESTION191': 'Avez-vous l\'intention de changer de téléphone dans les deux prochaines années ?',
 	'QUESTION192': 'Comptez-vous assurer votre téléphone en cas de perte ou de panne ?',
 	'QUESTION193': 'Quel type de police d\'assurance comptez-vous adopter ?',
@@ -86,17 +104,23 @@ var frTrans = {
 	'QUESTION26': 'Connaissez-vous un opérateur offrant une assurance ?',
 	'QUESTION27': 'Plus de détails SVP',
 	'SUBMITBTN': 'Soumettre',
-	'CANCELBTN': 'Annuler'
+	'CANCELBTN': 'Annuler',
+	"YEARLABEL": "An",
+	"YEARSLABEL": "Ans",
+	"SURVEYLABEL": "réponse déja !",
+	"SURVEYSLABEL": "réponses déja !"
+	// "YEARLABEL": "{YEARCOUNT, select, sing{An} other{Ans}}",
+	// "SURVEYLABEL": "{SURVEYCOUNT, select, sing{réponse} other{réponses}} déja !"
 };
 
 
 // create the application
-var rwenzApp = angular.module('braam', ['ngCookies', 'ngResource', 'pascalprecht.translate', 'ui.bootstrap']);
+var rwenzApp = angular.module('rwenzori', ['ngCookies', 'ngResource', 'pascalprecht.translate', 'ui.bootstrap']);
 
 // add backend resource via a factory
-// rwenzApp.factory('BraamRes', function($resource) {
-// 	return $resource('/api/projects/:project_id', {project_id: '@project_id'}, {update: {method: 'PUT'}});
-// });
+rwenzApp.factory('ToroRes', function($resource) {
+	return $resource('/api/surveys');
+});
 
 // configure the application
 rwenzApp.config(['$routeProvider', '$locationProvider', '$translateProvider', function($routeProvider, $locationProvider, $translateProvider){
@@ -106,12 +130,33 @@ rwenzApp.config(['$routeProvider', '$locationProvider', '$translateProvider', fu
 	// when('/signup', {templateUrl: 'partials/signup.html', controller: SignUpController}).
 	// when('/login', {templateUrl: 'partials/login.html', controller: LoginController}).
 	// when('/logout', {template: " ", controller: LogoutController}).
-	// when('/new', {templateUrl: "partials/createProject.html", controller: CreateProjectController}).
-	// when('/list', {templateUrl: "partials/listProject.html", controller: ListProjectController}).
-	// when('/edit/:projectid', {templateUrl: "partials/editProject.html", controller: EditOrDeleteProjectController}).
 	otherwise({redirectTo: '/'});
 	$locationProvider.html5Mode(true);
 	$translateProvider.translations('en', engTrans);
 	$translateProvider.translations('fr', frTrans);
+	// $translateProvider.addInterpolation('$translateMessageFormatInterpolation');
 	$translateProvider.preferredLanguage('en');
+	$translateProvider.fallbackLanguage("en");
 }]);
+
+// defining the integer directive
+var INTEGER_REGEXP =/^\-?\d*$/;
+
+rwenzApp.directive('integer', function() {
+	return {
+		require: 'ngModel',
+		link: function(scope, elm, attrs, ctrl) {
+			ctrl.$parsers.unshift(function(viewValue){
+				if (INTEGER_REGEXP.test(viewValue)) {
+					// the value is a valid integer
+					ctrl.$setValidity('integer', true);
+					return viewValue;
+				} else {
+					// according to the regexp the value is not a valid integer
+					ctrl.$setValidity('integer', false);
+					return undefined;
+				}
+			});
+		}
+	};
+});

@@ -45,4 +45,13 @@ function MainController($scope, $translate, $cookieStore) {
 	$scope.showingEnglish = function() {
 		return $translate.uses() === 'en';
 	};
+
+	$scope.getSurveySummary = function(SURVEYCOUNT) {
+		// return $translate('SURVEYLABEL', {SURVEYCOUNT: 'other'}, 'messageformat');
+		if ((SURVEYCOUNT === 0) || (SURVEYCOUNT === 1)){
+			return $translate('SURVEYLABEL');
+		} else {
+			return $translate('SURVEYSLABEL');
+		}
+	};
 }
