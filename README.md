@@ -11,5 +11,6 @@ The basic functionality offerred are as follows
 
 
 # Author
-[Boris Y. Houngbadji](mailto: yediah@gmail.com)
-[José G. Quenum](mailto: josum@icloud.com)
+
+* [Boris Y. Houngbadji](mailto: yediah@gmail.com)
+* [José G. Quenum](mailto: josum@icloud.com)
