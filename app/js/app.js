@@ -49,12 +49,8 @@ var engTrans = {
 	'QUESTION27': 'Please state',
 	'SUBMITBTN': 'Submit',
 	'CANCELBTN': 'Cancel',
-	// "YEARLABEL": "{YEARCOUNT, select, sing{Year} other{Years}}",
-	"YEARLABEL": "Year",
-	"YEARSLABEL": "Years",
-	"SURVEYLABEL": "survey response already!",
-	"SURVEYSLABEL": "survey responses already!"
-	// "SURVEYLABEL": "survey {SURVEYCOUNT, select, sing{response} other{responses}} already!"
+	"YEARLABEL": "{YEARCOUNT, select, sing{Year} other{Years}}",
+	"SURVEYLABEL": "survey {SURVEYCOUNT, select, sing{response} other{responses}} already!"
 };
 var frTrans = {
 	'LANGUAGES': 'Langages',
@@ -105,12 +101,8 @@ var frTrans = {
 	'QUESTION27': 'Plus de détails SVP',
 	'SUBMITBTN': 'Soumettre',
 	'CANCELBTN': 'Annuler',
-	"YEARLABEL": "An",
-	"YEARSLABEL": "Ans",
-	"SURVEYLABEL": "réponse déja !",
-	"SURVEYSLABEL": "réponses déja !"
-	// "YEARLABEL": "{YEARCOUNT, select, sing{An} other{Ans}}",
-	// "SURVEYLABEL": "{SURVEYCOUNT, select, sing{réponse} other{réponses}} déja !"
+	"YEARLABEL": "{YEARCOUNT, select, sing{An} other{Ans}}",
+	"SURVEYLABEL": "{SURVEYCOUNT, select, sing{réponse} other{réponses}} déja !"
 };
 
 
@@ -134,7 +126,7 @@ rwenzApp.config(['$routeProvider', '$locationProvider', '$translateProvider', fu
 	$locationProvider.html5Mode(true);
 	$translateProvider.translations('en', engTrans);
 	$translateProvider.translations('fr', frTrans);
-	// $translateProvider.addInterpolation('$translateMessageFormatInterpolation');
+	$translateProvider.addInterpolation('$translateMessageFormatInterpolation');
 	$translateProvider.preferredLanguage('en');
 	$translateProvider.fallbackLanguage("en");
 }]);

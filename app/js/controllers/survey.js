@@ -170,16 +170,16 @@ function SurveyController ($scope, $translate, $location, ToroRes) {
 	};
 
 	$scope.getYearsLabel = function() {
-		if (($scope.surveyData.howLongUsedAPhone === 0) || ($scope.surveyData.howLongUsedAPhone === 1)) {
-			return $translate('YEARLABEL');
-		} else {
-			return $translate('YEARSLABEL');
-		}
 		// if (($scope.surveyData.howLongUsedAPhone === 0) || ($scope.surveyData.howLongUsedAPhone === 1)) {
-		// 	return $translate('YEARLABEL', {YEARCOUNT: 'sing'}, 'messageformat');
+		// 	return $translate('YEARLABEL');
 		// } else {
-		// 	return $translate('YEARLABEL', {YEARCOUNT: 'other'}, 'messageformat');
+		// 	return $translate('YEARSLABEL');
 		// }
+		if (($scope.surveyData.howLongUsedAPhone === 0) || ($scope.surveyData.howLongUsedAPhone === 1)) {
+			return $translate('YEARLABEL', {YEARCOUNT: 'sing'}, 'messageformat');
+		} else {
+			return $translate('YEARLABEL', {YEARCOUNT: 'other'}, 'messageformat');
+		}
 	};	
 
 	$scope.hasChangedPhone = function() {
